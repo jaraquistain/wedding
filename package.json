@@ -1,7 +1,7 @@
 {
   "name": "wedding",
   "description": "The Jon and Britney wedding site.",
-  "main": "web.js",
+  "main": "app.js",
   "version": "0.0.1",
   "private": true,
   "scripts": {
