@@ -1,7 +1,13 @@
 doctype html
-html
+html(data-ng-app="AW")
   head
     title= title
+    script(type="text/javascript", src="/javascripts/aw-require.js")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block head
   body
     block content
+
+    script(type="text/javascript").
+        AW_require(['/javascripts/vendor/angular/angular.min.js'], 'js');
+        AW_require(['/javascripts/aw.js', '/javascripts/controllers/testController.js', '/javascripts/aw-app.js'], 'js');
