@@ -6,10 +6,42 @@ block content
     div.container(data-ng-controller="TestController", data-ng-init="setGuests( #{JSON.stringify(guests)} )")
         h1 My Guest List
         h2 Confirmed
-            div.invite(data-ng-repeat="guest in guests | filter:confirmedFilter")
-                p.name "{{guest.firstName}} {{guest.lastName}}"
-                input(type="checkbox", ng-model="guest.confirmed")
+        div.invite(data-ng-repeat="guest in guests | filter:confirmedFilter")
+            p.name {{guest.firstName}} {{guest.lastName}}
+            input(type="checkbox", ng-model="guest.confirmed")
         h2 Not Confirmed
-            div.invite(data-ng-repeat="guest in guests | filter:notConfirmedFilter")
-                p.name "{{guest.firstName}} {{guest.lastName}}"
-                input(type="checkbox", ng-model="guest.confirmed")
+        div.invite(data-ng-repeat="guest in guests | filter:notConfirmedFilter")
+            p.name {{guest.firstName}} {{guest.lastName}}
+            input(type="checkbox", ng-model="guest.confirmed")
+        h2 Add New Guest
+        form(novalidate, ng-submit="addNewGuest()")
+            input(  type="text",
+                    ng-model="newGuest.firstName",
+                    placeholder="First Name"
+                    required)
+            input(  type="text",
+                    ng-model="newGuest.lastName",
+                    placeholder="Last Name"
+                    required)
+            input(  type="text",
+                    ng-model="newGuest.address.street1",
+                    placeholder="Street"
+                    required)
+            input(  type="text",
+                    ng-model="newGuest.address.street2",
+                    placeholder="Street 2 (optional)")
+            input(  type="text",
+                    ng-model="newGuest.address.city",
+                    placeholder="City"
+                    required)
+            input(  type="text",
+                    ng-model="newGuest.address.state",
+                    placeholder="State"
+                    required)
+            input(  type="number",
+                    maxlength="5",
+                    min="10000"
+                    ng-model="newGuest.address.zip",
+                    placeholder="Zip"
+                    required)
+            button( type="submit") Add Guest
