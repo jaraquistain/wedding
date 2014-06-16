@@ -1,21 +1,39 @@
-var express = require('express');
-var path = require('path');
-var logfmt = require('logfmt');
-var mongo = require('mongodb');
-var favicon = require('static-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
+/////////////////
+//Dependencies
+/////////////////
+var express = require('express'),
+    path = require('path'),
+    logfmt = require('logfmt'),
+    favicon = require('static-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    http = require('http'),
+    routes = require('./routes'),
+    user = require('./routes/user');
 
 var app = express();
 
-// view engine setup
+/////////////////
+//Database
+/////////////////
+var Mongoose = require('mongoose');
+var db = Mongoose.createConnection('localhost', 'wedding');
+
+var GuestSchema = require('./dbmodels/Guest.js').GuestSchema;
+var Guest = db.model('guests', GuestSchema);
+
+/////////////////
+//View Engine
+/////////////////
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+/////////////////
+//Environment
+/////////////////
+app.set('port', process.env.PORT || 5000);
+app.use(logfmt.requestLogger());
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -24,31 +42,33 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use(logfmt.requestLogger());
 
-app.get('/', function (req, res) {
 
-    res.send('Hello World!');
-});
+/////////////////
+//Routes
+/////////////////
+app.get('/', routes.index(Guest));
+app.get('/users', user.list);
+app.get('/guests.json', routes.get(Guest));
 
-var port = Number(process.env.PORT || 5000);
-app.listen(port, function () {
-    console.log("Listening on " + port);
-});
+app.post('/guests.json', routes.addGuest(Guest));
 
-/// catch 404 and forward to error handler
+app.put('/guests/:id.json', routes.update(Guest));
+
+
+
+/////////////////
+//Error Handlers
+/////////////////
+
+//404
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-/// error handlers
-
-// development error handler
-// will print stacktrace
+//Dev
 if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
@@ -59,8 +79,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
+//Prod
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -69,8 +88,15 @@ app.use(function (err, req, res, next) {
     });
 });
 
-//Database connection
-var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'wedding');
+/////////////////
+//Connection
+/////////////////
+//var port = Number(process.env.PORT || 5000);
+//app.listen(port, function () {
+//    console.log("Listening on " + port);
+//});
+http.createServer(app).listen(app.get('port'), function(){
+    console.log('Express server listening on port ' + app.get('port'));
+});
 
 module.exports = app;

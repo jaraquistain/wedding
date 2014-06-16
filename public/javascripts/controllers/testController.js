@@ -4,25 +4,24 @@ AW.namespace('AW.Controllers.Test');
         $scope.guests = [];
         $scope.setGuests = function (guestArray) {
             $scope.guests = guestArray;
-            console.log('guests:', $scope.guests);
         };
 
-        $scope.guestTemplate = {
-            'firstName': '',
-            'lastName':  '',
+        $scope.newGuest = {
+            'firstName': null,
+            'lastName':  null,
             'address':   {
-                'street1': '',
-                'street2': '',
-                'city':    '',
-                'state':   '',
-                'zip':     ''
+                'street1': null,
+                'street2': null,
+                'city':    null,
+                'state':   null,
+                'zip':     null
             },
-            'email':     '',
-            'phone':     '',
+            'email':     null,
+            'phone':     null,
             'confirmed': false
         };
 
-        $scope.newGuest = angular.extend({}, $scope.guestTemplate);
+        $scope.newGuest = $scope.newGuest = {'address': {}, 'confirmed': false};
 
         $scope.confirmedFilter = {
             'confirmed': true
@@ -32,13 +31,29 @@ AW.namespace('AW.Controllers.Test');
             'confirmed': false
         };
 
-        $scope.addNewGuest = function(){
-            $http.post('/guests.json', $scope.newTodo).success(function(response){
-                $scope.guests = response.guests;
-                $scope.newGuest = angular.extend({}, $scope.guestTemplate);
+        $scope.update = function(guest) {
+            $http.put('/guests/' + guest._id + '.json', guest).success(function(data) {
+                if (!data._id) {
+                    console.log('error response:', data);
+                }
             });
         };
 
+        $scope.addNewGuest = function(){
+            if ($scope.newGuestForm.$valid) {
+                $http.post('/guests.json', $scope.newGuest).success(function(response){
+                    if (response._id) {
+                        $scope.guests.unshift(response);
+                        $scope.newGuest = $scope.newGuest = {'address': {}, 'confirmed': false};
+                        $scope.newGuest = {'address': {}, 'confirmed': false}
+                    } else {
+                        console.warn('something ain\'t right');
+                    }
+                });
+            } else {
+                console.log('form is invalid');
+            }
+        };
     };
     namespace.controller.$inject = ['$scope', '$http'];
 })(AW.Controllers.Test);
