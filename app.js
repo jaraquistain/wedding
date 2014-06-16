@@ -18,7 +18,7 @@ var app = express();
 //Database
 /////////////////
 var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'wedding');
+var db = Mongoose.createConnection('mongodb://heroku_app26380125:8jc4bd7pobooh6egackrcfpb2m@ds061767.mongolab.com:61767/heroku_app26380125', 'wedding');
 
 var GuestSchema = require('./dbmodels/Guest.js').GuestSchema;
 var Guest = db.model('guests', GuestSchema);
