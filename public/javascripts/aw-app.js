@@ -6,11 +6,12 @@ AW.namespace("AW.App");
     //////////////////////////////
     // Angular Module
     //////////////////////////////
-    namespace.module = angular.module('AW',[]);
+    namespace.module = angular.module('AW', []);
 
     //////////////////////////////
     // Angular Controllers
     //////////////////////////////
     namespace.module
-        .controller('TestController', AW.Controllers.Test.controller);
+        .controller('TestController', AW.Controllers.Test.controller)
+        .controller('InviteController', AW.Controllers.Invite.controller);
 }(AW.App));

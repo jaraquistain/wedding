@@ -9,8 +9,6 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     http = require('http'),
-    routes = require('./routes'),
-    user = require('./routes/user'),
     uriUtil = require('mongodb-uri');
 
 var app = express();
@@ -22,10 +20,12 @@ var Mongoose = require('mongoose'),
     mongodbUri = 'mongodb://heroku_app26380125:8jc4bd7pobooh6egackrcfpb2m@ds061767.mongolab.com:61767/heroku_app26380125',
     mongooseUri = uriUtil.formatMongoose(mongodbUri),
     //'mongodb://localhost/wedding'
-    db = Mongoose.createConnection(mongooseUri);
+    db = Mongoose.createConnection('mongodb://localhost/wedding');
 
 var GuestSchema = require('./dbmodels/Guest.js').GuestSchema;
+var InviteSchema = require('./dbmodels/Invite.js').InviteSchema;
 var Guest = db.model('guests', GuestSchema);
+var Invite = db.model('invites', InviteSchema);
 
 /////////////////
 //View Engine
@@ -51,6 +51,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 /////////////////
 //Routes
 /////////////////
+var routes = require('./routes'),
+    user = require('./routes/user'),
+    inviteRoutes = require('./routes/invites');
+
+app.get('/invites', inviteRoutes.view(Invite, Guest));
+app.post('/invites.json', inviteRoutes.addInvite(Invite));
+
 app.get('/', routes.index(Guest));
 app.get('/users', user.list);
 app.get('/guests.json', routes.get(Guest));

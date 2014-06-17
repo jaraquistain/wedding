@@ -12,5 +12,5 @@ exports.GuestSchema = new Mongoose.Schema({
     },
     'email':     { 'type': String, 'required': false },
     'phone':     { 'type': String, 'required': false },
-    'confirmed': { 'type': Boolean, 'required': true }
+    'confirmed': { 'type': Boolean, 'required': true, 'default': false }
 });
