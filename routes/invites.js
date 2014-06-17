@@ -15,9 +15,6 @@ exports.view = function (Invite, Guest) {
 exports.addInvite = function(Invite) {
     return function(req, res) {
         var invite = new Invite(req.body);
-        console.log('--------------------------------');
-        console.log(invite);
-        console.log('--------------------------------');
         invite.save(function(error, invite){
             if (error || !invite) {
                 res.json({'error': true});
