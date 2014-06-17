@@ -10,15 +10,19 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     http = require('http'),
     routes = require('./routes'),
-    user = require('./routes/user');
+    user = require('./routes/user'),
+    uriUtil = require('mongodb-uri');
 
 var app = express();
 
 /////////////////
 //Database
 /////////////////
-var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('mongodb://heroku_app26380125:8jc4bd7pobooh6egackrcfpb2m@ds061767.mongolab.com:61767/heroku_app26380125', 'wedding');
+var Mongoose = require('mongoose'),
+    mongodbUri = 'mongodb://heroku_app26380125:8jc4bd7pobooh6egackrcfpb2m@ds061767.mongolab.com:61767/heroku_app26380125',
+    mongooseUri = uriUtil.formatMongoose(mongodbUri),
+    //'mongodb://localhost/wedding'
+    db = Mongoose.createConnection(mongooseUri);
 
 var GuestSchema = require('./dbmodels/Guest.js').GuestSchema;
 var Guest = db.model('guests', GuestSchema);
