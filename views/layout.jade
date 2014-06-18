@@ -1,13 +1,37 @@
 doctype html
 html(data-ng-app="AW")
-  head
-    title= title
-    script(type="text/javascript", src="/javascripts/aw-require.js")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    block head
-  body
-    block content
+    head
+        title= title
+        script(type="text/javascript", src="/javascripts/aw-require.js")
+        link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Holtwood+One+SC|Ultra')
+        link(rel='stylesheet', href='/stylesheets/normalize.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        block head
+    body
+        div#hero
 
-    script(type="text/javascript").
-        AW_require(['/javascripts/vendor/angular/angular.min.js'], 'js');
-        AW_require(['/javascripts/aw.js', '/javascripts/controllers/testController.js', '/javascripts/controllers/inviteController.js', '/javascripts/aw-app.js'], 'js');
+        nav#navigation
+            ul.nav-list(data-ng-controller="NavController")
+                li.nav-item.in-bl(data-ng-repeat="item in navItems")
+                    a.nav-link.in-bl(data-ng-href="{{item.route}}") {{item.title}}
+
+        block content
+
+        script(type="text/javascript").
+            AW_require([
+                '/javascripts/vendor/angular/angular.min.js',
+                '/javascripts/vendor/jquery/jquery-1.11.1.min.js',
+                '/javascripts/vendor/cookies-js/src/cookies.js',
+                '/javascripts/vendor/jquery/jquery.sticky.js'
+            ], 'js');
+            AW_require([
+                '/javascripts/aw.js',
+                '/javascripts/controllers/testController.js',
+                '/javascripts/controllers/infoController.js',
+                '/javascripts/controllers/vegasController.js',
+                '/javascripts/controllers/rsvpController.js',
+                '/javascripts/controllers/registryController.js',
+                '/javascripts/controllers/navController.js',
+                '/javascripts/controllers/inviteController.js',
+                '/javascripts/aw-app.js'
+            ], 'js');

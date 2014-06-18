@@ -1,0 +1,7 @@
+extends layout
+block head
+    title
+        | #{title}
+block content
+    div#vegas.container(data-ng-controller="VegasController", style="text-align: center;") vegas
+        img(src="http://www.placekitten.com/300/500", data-ng-repeat="thing in [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2] track by $index")

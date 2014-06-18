@@ -1,4 +1,30 @@
 /* GET home page. */
+exports.root = function(req, res) {
+    var defaultView = 'info';
+    res.render(defaultView, {});
+};
+
+exports.info = function(req, res) {
+    res.render('info', {
+        'title': 'Information'
+    });
+};
+exports.rsvp = function(req, res) {
+    res.render('rsvp', {
+        'title': 'RSVP'
+    });
+};
+exports.vegas = function(req, res) {
+    res.render('vegas', {
+        'title': 'Vegas'
+    });
+};
+exports.registry = function(req, res) {
+    res.render('registry', {
+        'title': 'Registry'
+    });
+};
+
 exports.index = function (Guest) {
     return function(req, res){
 

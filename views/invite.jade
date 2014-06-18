@@ -1,0 +1,16 @@
+extends layout
+block head
+    title
+        | #{title}
+block content
+    div.container(data-ng-controller="InviteController", data-ng-init="setData( #{JSON.stringify(invites)}, #{JSON.stringify(guests)}, true)")
+        h1 Invite {{invite._id}}:
+        h2 Current:
+        p(ng-repeat="guest in invite.guests") {{guest.firstName}} {{guest.lastName}}
+        button(data-ng-click="remove(invite._id)") remove
+        hr
+        form(novalidate, name="newInviteForm", ng-submit="updateInvite()")
+            div.guest(data-ng-repeat="guest in guests")
+                span {{guest.firstName}} {{guest.lastName}}
+                input(type="checkbox", ng-model="newInviteGuestsList[$index]")
+            button(type="submit") add

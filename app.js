@@ -51,19 +51,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 /////////////////
 //Routes
 /////////////////
-var routes = require('./routes'),
-    user = require('./routes/user'),
-    inviteRoutes = require('./routes/invites');
+var routes = require('./routes');
 
+
+//Invites
+var inviteRoutes = require('./routes/invites');
 app.get('/invites', inviteRoutes.view(Invite, Guest));
-app.post('/invites.json', inviteRoutes.addInvite(Invite));
+app.get('/invites/:id', inviteRoutes.viewOne(Invite, Guest));
+app.put('/invites/:id', inviteRoutes.update(Invite));
+app.delete('/invites/:id', inviteRoutes.remove(Invite));
+app.post('/invites.json', inviteRoutes.add(Invite));
+app.get('/invites.json', inviteRoutes.get(Invite));
 
+//Info
+app.get('/', routes.root);
+app.get('/info', routes.info);
+app.get('/vegas', routes.vegas);
+app.get('/registry', routes.registry);
+app.get('/rsvp', routes.rsvp);
+
+//Guests
 app.get('/', routes.index(Guest));
-app.get('/users', user.list);
 app.get('/guests.json', routes.get(Guest));
-
 app.post('/guests.json', routes.addGuest(Guest));
-
 app.put('/guests/:id.json', routes.update(Guest));
 
 

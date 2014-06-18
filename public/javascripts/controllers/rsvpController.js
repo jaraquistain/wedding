@@ -1,0 +1,13 @@
+AW.namespace('AW.Controllers.Rsvp');
+(function (namespace) {
+    namespace.controller = function ($scope) {
+        $scope.navItems = [
+            {
+                'title': 'Info',
+                'route': '/info'
+            }
+        ]
+
+    };
+    namespace.controller.$inject = ['$scope'];
+})(AW.Controllers.Rsvp);

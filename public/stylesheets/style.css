@@ -1,1 +1,94 @@
-body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}a{color:#00B7FF}
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+  color: #00B7FF;
+}
+nav {
+  width: 100%;
+}
+nav ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body {
+  background: #fffbd8;
+  background: -moz-linear-gradient(left, #fffbd8 0%, #fffbd8 50%, #f9f5d6 50%, #f9f5d6 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #fffbd8), color-stop(50%, #fffbd8), color-stop(50%, #f9f5d6), color-stop(100%, #f9f5d6));
+  background: -webkit-linear-gradient(left, #fffbd8 0%, #fffbd8 50%, #f9f5d6 50%, #f9f5d6 100%);
+  background: -o-linear-gradient(left, #fffbd8 0%, #fffbd8 50%, #f9f5d6 50%, #f9f5d6 100%);
+  background: -ms-linear-gradient(left, #fffbd8 0%, #fffbd8 50%, #f9f5d6 50%, #f9f5d6 100%);
+  background: linear-gradient(to right, #fffbd8 0%, #fffbd8 50%, #f9f5d6 50%, #f9f5d6 100%);
+  background-size: 150px 100%;
+  padding: 0;
+}
+#hero {
+  height: 200px;
+  width: 100%;
+  background-color: tan;
+}
+.container {
+  height: 3000px;
+  padding-top: 126px;
+}
+#navigation {
+  position: relative;
+  z-index: 1000;
+}
+#navigation:before {
+  content: ' ';
+  display: block;
+  height: 6px;
+  width: 100%;
+  background-image: repeating-linear-gradient(-45deg, transparent, rgba(0, 0, 0, 0.1) 40px, #000000 41px);
+  background-color: #fff;
+}
+#navigation .nav-list {
+  width: 100%;
+  text-align: center;
+}
+#navigation .nav-item {
+  width: 180px;
+  height: 80px;
+  background: transparent url(../images/flag.png) center -30px no-repeat;
+  background-size: 180px 110px;
+  margin-right: 16px;
+}
+#navigation .nav-item:hover {
+  -webkit-box-shadow: 0px 0px 4px 0px #000;
+  box-shadow: 0px 0px 4px 0px #000;
+  -webkit-transition: background-color 218ms linear;
+  -moz-transition: background-color 218ms linear;
+  -ms-transition: background-color 218ms linear;
+  -o-transition: background-color 218ms linear;
+}
+#navigation .nav-item .nav-link {
+  padding: 21px 12px;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  color: #005b77;
+  font-family: 'Holtwood One SC', serif;
+  letter-spacing: 1px;
+  width: 100%;
+  height: 100%;
+}
+#navigation .nav-item:last-child {
+  margin-right: 0px;
+}
+.in-bl {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+}

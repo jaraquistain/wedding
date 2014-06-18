@@ -9,7 +9,7 @@ block content
         script.
             var g = #{blah}
         div.invite(data-ng-repeat="guest in guests | filter:confirmedFilter")
-            p.name {{guest.firstName}} {{guest.lastName}}
+            a.name(data-ng-href="/guests/") {{guest.firstName}} {{guest.lastName}}
             input(type="checkbox", ng-model="guest.confirmed", ng-change="update(guest)")
         h2 Not Confirmed
         div.invite(data-ng-repeat="guest in guests | filter:notConfirmedFilter")

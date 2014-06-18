@@ -3,15 +3,15 @@ block head
     title
         | #{title}
 block content
-    div.container(data-ng-controller="InviteController", data-ng-init="setData( #{JSON.stringify(guests)}, #{JSON.stringify(invites)})")
+    div.container(data-ng-controller="InviteController", data-ng-init="setData( #{JSON.stringify(invites)}, #{JSON.stringify(guests)})")
         h1 My Invite List
         h2 Invites:
-        div.invite(data-ng-repeat="invite in invites")
+        a.invite(data-ng-href="/invites/{{invite._id}}", data-ng-repeat="invite in invites")
             hr
-            p(data-ng-repeat="guest in invite.guests") {{guest.firstName}} {{guest.lastName}}
+            span(data-ng-repeat="guest in invite.guests") {{guest.firstName}} {{guest.lastName}},
         h2 Add New Invite
         form(novalidate, name="newInviteForm", ng-submit="addNewInvite()")
             div.guest(data-ng-repeat="guest in guests")
-                p {{guest.firstName}} {{guest.lastName}}
+                span {{guest.firstName}} {{guest.lastName}}
                 input(type="checkbox", ng-model="newInviteGuestsList[$index]")
             button(type="submit") add
