@@ -64,19 +64,22 @@ body {
   background-size: 180px 110px;
   margin-right: 16px;
 }
-#navigation .nav-item:hover {
-  color: white;
-  -webkit-transition: color 218ms linear;
-  -moz-transition: color 218ms linear;
-  -ms-transition: color 218ms linear;
-  -o-transition: color 218ms linear;
+#navigation .nav-item.active {
+  background-color: black;
+}
+#navigation .nav-item:hover .nav-link {
+  -webkit-transition: text-shadow 218ms linear;
+  -moz-transition: text-shadow 218ms linear;
+  -ms-transition: text-shadow 218ms linear;
+  -o-transition: text-shadow 218ms linear;
+  text-shadow: 2px 2px 0px #005b77;
 }
 #navigation .nav-item .nav-link {
   padding: 21px 12px;
   text-decoration: none;
   font-size: 23px;
   font-weight: bold;
-  color: #005b77;
+  color: #fff;
   font-family: 'Holtwood One SC', serif;
   letter-spacing: 1px;
   width: 100%;

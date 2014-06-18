@@ -1,6 +1,10 @@
 AW.namespace('AW.Controllers.Nav');
 (function (namespace) {
     namespace.controller = function ($scope) {
+        $scope.setData = function(tab) {
+            console.log('set active to:', tab);
+            $scope.activeTab = tab;
+        };
         $('#navigation').sticky({'topSpacing':0});
         $scope.$root.navItems = [
             {

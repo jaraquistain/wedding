@@ -6,22 +6,26 @@ exports.root = function(req, res) {
 
 exports.info = function(req, res) {
     res.render('info', {
-        'title': 'Information'
+        'title': 'Information',
+        'tab': 'Info'
     });
 };
 exports.rsvp = function(req, res) {
     res.render('rsvp', {
-        'title': 'RSVP'
+        'title': 'RSVP',
+        'tab': 'RSVP'
     });
 };
 exports.vegas = function(req, res) {
     res.render('vegas', {
-        'title': 'Vegas'
+        'title': 'Vegas',
+        'tab': 'Vegas'
     });
 };
 exports.registry = function(req, res) {
     res.render('registry', {
-        'title': 'Registry'
+        'title': 'Registry',
+        'tab': 'Registry'
     });
 };
 

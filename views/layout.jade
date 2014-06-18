@@ -11,8 +11,8 @@ html(data-ng-app="AW")
         div#hero
 
         nav#navigation
-            ul.nav-list(data-ng-controller="NavController")
-                li.nav-item.in-bl(data-ng-repeat="item in navItems")
+            ul.nav-list(data-ng-controller="NavController", data-ng-init="setData('#{tab}')")
+                li.nav-item.in-bl(data-ng-repeat="item in navItems", data-ng-class="{'active': activeTab == item.title}")
                     a.nav-link.in-bl(data-ng-href="{{item.route}}") {{item.title}}
 
         block content
