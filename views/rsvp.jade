@@ -3,5 +3,15 @@ block head
     title
         | #{title}
 block content
-    div#rsvp.container(data-ng-controller="RsvpController") rsvp
+    div#rsvp.container(data-ng-controller="RsvpController")
+        h1 Let us know if you can come
+        address
+            | Tres
+            | 130 Townsend Street, San Francisco, CA 94107
+            | Sunday, November 9th from 3-6pm
+        label(for="name") Type in your name below and select it from the list
+        div.input-wrap
+            input#name.aw-input(type="text", data-ng-model="name", placeholder="Name")
+
+
 

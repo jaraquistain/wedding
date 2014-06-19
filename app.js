@@ -19,8 +19,8 @@ var app = express();
 var Mongoose = require('mongoose'),
     mongodbUri = 'mongodb://heroku_app26380125:8jc4bd7pobooh6egackrcfpb2m@ds061767.mongolab.com:61767/heroku_app26380125',
     mongooseUri = uriUtil.formatMongoose(mongodbUri),
-    //'mongodb://localhost/wedding'
-    db = Mongoose.createConnection('mongodb://localhost/wedding');
+    db = Mongoose.createConnection(mongodbUri);
+    //db = Mongoose.createConnection('mongodb://localhost/wedding');
 
 var GuestSchema = require('./dbmodels/Guest.js').GuestSchema;
 var InviteSchema = require('./dbmodels/Invite.js').InviteSchema;
@@ -71,7 +71,7 @@ app.get('/registry', routes.registry);
 app.get('/rsvp', routes.rsvp);
 
 //Guests
-app.get('/', routes.index(Guest));
+app.get('/guests', routes.index(Guest));
 app.get('/guests.json', routes.get(Guest));
 app.post('/guests.json', routes.addGuest(Guest));
 app.put('/guests/:id.json', routes.update(Guest));

@@ -22,7 +22,7 @@ AW.namespace('AW.Controllers.Nav');
         ];
 
         Cookies.get('vegas-ok') && $scope.$root.navItems.length === 3 && $scope.$root.navItems.push({
-            'title': 'Vegas',
+            'title': 'Vegas!',
             'route': '/vegas'
         });
 
