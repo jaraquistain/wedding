@@ -1,4 +1,8 @@
-.ng-cloak { display:none !important; }
+@gutter: 9px;
+
+.ng-cloak {
+  display: none !important;
+}
 
 body {
   padding: 50px;
@@ -14,43 +18,47 @@ body {
 a {
   color: #00B7FF;
 }
+
 h1 {
   margin: 18px 0;
   color: #0071CF;
   font-family: "Josefin Sans";
 }
-nav {
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav, nav ul {
   width: 100%;
-  ul {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
 }
 
 body {
   padding: 0;
   background: #cccccc;
   background: -moz-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(50%,#eeeeee), color-stop(50%,#ffffff), color-stop(100%,#ffffff));
-  background: -webkit-linear-gradient(top, #eeeeee 0%,#eeeeee 50%,#ffffff 50%,#ffffff 100%);
-  background: -o-linear-gradient(top, #eeeeee 0%,#eeeeee 50%,#ffffff 50%,#ffffff 100%);
-  background: -ms-linear-gradient(top, #eeeeee 0%,#eeeeee 50%,#ffffff 50%,#ffffff 100%);
-  background: linear-gradient(to bottom, #eeeeee 0%,#eeeeee 50%,#ffffff 50%,#ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(50%, #eeeeee), color-stop(50%, #ffffff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
+  background: -o-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(to bottom, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
   background-size: 100% 80px;
 }
 
 #hero {
-  height: 100px;
+  height: 120px;
   width: 100%;
   background-color: #EEE;
 }
+
 #content-wrap {
   padding: 0 40px 40px;
 }
+
 .container {
-  min-height: 3000px;
+  //min-height: 3000px;
   max-width: 800px;
   margin: 0 auto;
   padding: 56px 40px 40px;
@@ -118,28 +126,80 @@ body {
   zoom: 1;
 }
 
-
 ///RSVP/////
+#rsvp {
+  min-height: 680px;
+}
 address {
-  white-space: pre;
+  white-space: pre-wrap;
   margin: 32px 0;
 }
+
 label {
   font-family: "Josefin Sans";
   color: #009288;
-  font-size: 18px;
+  font-size: 20px;
 }
+.disclaimer {
+  margin-top: 0;
+  font-style: italic;
+}
+.name-label {
+  display: block;
+}
+
+.input-wrap {
+  max-width: 100%;
+}
+
 .aw-input {
   border-radius: 3px;
   padding: 4px;
   font-size: 18px;
   border: 1px solid #ccc;
-  margin: 9px;
+  margin: @gutter 0;
+  &#name {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
 }
+
+.list-wrap {
+  margin: 0 0 @gutter;
+  position: relative;
+  width: 100%;
+}
+
+.guest-list {
+  position: absolute;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 100%;
+  background: #fff;
+  max-height: 130px;
+  overflow-y: auto;
+  .guest {
+    padding: @gutter / 2 @gutter;
+    cursor: pointer;
+    &:hover {
+      background-color: #009288;
+    }
+  }
+}
+.invites-wrap {
+  margin-top: 3 * @gutter;
+}
+.invite-guest {
+  margin: @gutter;
+}
+.invite-guest-name {
+  margin-left: @gutter;
+}
+
 //Mixins
 .transition (@transition) {
   -webkit-transition: @transition;
-  -moz-transition:    @transition;
-  -ms-transition:     @transition;
-  -o-transition:      @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
 }

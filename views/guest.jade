@@ -6,15 +6,20 @@ block content
     div.container(data-ng-controller="TestController", data-ng-init="setGuests( #{JSON.stringify(guests)} )")
         h1 My Guest List
         h2 Confirmed
-        script.
-            var g = #{blah}
         div.invite(data-ng-repeat="guest in guests | filter:confirmedFilter")
             a.name(data-ng-href="/guests/") {{guest.firstName}} {{guest.lastName}}
             input(type="checkbox", ng-model="guest.confirmed", ng-change="update(guest)")
         h2 Not Confirmed
         div.invite(data-ng-repeat="guest in guests | filter:notConfirmedFilter")
-            p.name {{guest.firstName}} {{guest.lastName}}
+            span {{guest._id}}
+            br
+            span.name {{guest.firstName}} {{guest.lastName}}
             input(type="checkbox", ng-model="guest.confirmed", ng-change="update(guest)")
+            br
+            span {{guest.address.street1}} {{guest.address.street2}}
+            br
+            span {{guest.address.city}}, {{guest.address.state}} {{guest.address.zip}}
+            p
         h2 Add New Guest
         form(novalidate, name="newGuestForm", ng-submit="addNewGuest()")
             input(  type="text",

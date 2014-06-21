@@ -5,7 +5,7 @@ block head
 block content
     div.container(data-ng-controller="InviteController", data-ng-init="setData( #{JSON.stringify(invites)}, #{JSON.stringify(guests)})")
         h1 My Invite List
-        h2 Invites:
+        h2 Invites ({{invites.length}}):
         a.invite(data-ng-href="/invites/{{invite._id}}", data-ng-repeat="invite in invites")
             hr
             span(data-ng-repeat="guest in invite.guests") {{guest.firstName}} {{guest.lastName}},

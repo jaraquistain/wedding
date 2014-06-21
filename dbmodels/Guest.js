@@ -3,6 +3,7 @@ var Mongoose = require('mongoose');
 exports.GuestSchema = new Mongoose.Schema({
     'firstName': { 'type': String, 'required': true },
     'lastName':  { 'type': String, 'required': true },
+    'nicknames': { 'type': String, 'required': false},
     'address':   {
         'street1': { 'type': String, 'required': true },
         'street2': { 'type': String, 'required': false },

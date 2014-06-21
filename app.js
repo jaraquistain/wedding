@@ -68,7 +68,7 @@ app.get('/', routes.root);
 app.get('/info', routes.info);
 app.get('/vegas', routes.vegas);
 app.get('/registry', routes.registry);
-app.get('/rsvp', routes.rsvp);
+app.get('/rsvp', routes.rsvp(Invite, Guest));
 
 //Guests
 app.get('/guests', routes.index(Guest));
