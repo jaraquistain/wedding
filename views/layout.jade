@@ -7,10 +7,10 @@ html(data-ng-app="AW")
         link(rel='stylesheet', href='/stylesheets/normalize.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
         block head
-    body(data-ng-cloak)
+    body()
         div#hero
 
-        nav#navigation
+        nav#navigation(data-ng-cloak="data-ng-cloak")
             ul.nav-list(data-ng-controller="NavController", data-ng-init="setData('#{tab}')")
                 li.nav-item.in-bl(  class="#{title}",
                                     data-ng-repeat="item in navItems",
@@ -21,7 +21,7 @@ html(data-ng-app="AW")
                                         data-ng-href="{{item.route}}") {{item.title}}
                     p.nav-link.in-bl(   data-title="{{item.title}}",
                                         data-ng-switch-when="true") {{item.title}}
-        div#content-wrap
+        div#content-wrap(data-ng-cloak="data-ng-cloak")
             block content
 
         script(type="text/javascript").

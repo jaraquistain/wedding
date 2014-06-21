@@ -1,4 +1,6 @@
 @gutter: 9px;
+@myBlue: #0071CF;
+@myGreen: #009288;
 
 .ng-cloak {
   display: none !important;
@@ -14,15 +16,24 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+p {
+  margin-bottom: 0;
+}
 a {
   color: #00B7FF;
 }
 
 h1 {
   margin: 18px 0;
-  color: #0071CF;
+  color: @myBlue;
   font-family: "Josefin Sans";
+}
+
+h2 {
+  font-family: "Josefin Sans";
+  margin-bottom: 0;
+  //color: @myGreen;
+  font-size: 20px;
 }
 
 ul {
@@ -37,18 +48,11 @@ nav, nav ul {
 
 body {
   padding: 0;
-  background: #cccccc;
-  background: -moz-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(50%, #eeeeee), color-stop(50%, #ffffff), color-stop(100%, #ffffff));
-  background: -webkit-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
-  background: -o-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
-  background: -ms-linear-gradient(top, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
-  background: linear-gradient(to bottom, #eeeeee 0%, #eeeeee 50%, #ffffff 50%, #ffffff 100%);
-  background-size: 100% 80px;
+  .stripe-gradient(pink, rgba(0, 146, 136, 0.5));
 }
 
 #hero {
-  height: 120px;
+  height: 0px;
   width: 100%;
   background-color: #EEE;
 }
@@ -63,7 +67,6 @@ body {
   margin: 0 auto;
   padding: 56px 40px 40px;
   background-color: #fff;
-  //border: 1px solid #eee;
 }
 
 #navigation {
@@ -71,7 +74,7 @@ body {
   z-index: 1000;
   background-color: #fff;
   //border-bottom: 1px solid #eee;
-  //box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   .nav-list {
     width: 100%;
     text-align: center;
@@ -126,10 +129,53 @@ body {
   zoom: 1;
 }
 
+//INFO///
+#map-wrap {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+}
+
+#gmap_canvas {
+  height:300px;
+  width:100%;
+  img {
+    max-width: none !important;
+    background: none !important
+  }
+}
+
+#maps {
+  width: 800px;
+  font-size: 10px;
+  font-family: arial;
+  text-align: right;
+}
+
+section {
+  margin-bottom: 4 * @gutter;
+  &:last-child {
+  margin-bottom: 0;
+}
+}
+
+#info {
+  address {
+    margin: 0;
+  }
+}
+
+.app-links {
+  margin-top: 2 * @gutter;
+  .ios {
+    margin-right: @gutter;
+  }
+}
 ///RSVP/////
 #rsvp {
-  min-height: 680px;
+  min-height: 640px;
 }
+
 address {
   white-space: pre-wrap;
   margin: 32px 0;
@@ -137,13 +183,15 @@ address {
 
 label {
   font-family: "Josefin Sans";
-  color: #009288;
+  //color: @myGreen;
   font-size: 20px;
 }
+
 .disclaimer {
   margin-top: 0;
   font-style: italic;
 }
+
 .name-label {
   display: block;
 }
@@ -186,14 +234,21 @@ label {
     }
   }
 }
+
 .invites-wrap {
   margin-top: 3 * @gutter;
 }
+
 .invite-guest {
   margin: @gutter;
 }
+
 .invite-guest-name {
   margin-left: @gutter;
+}
+
+.spinner {
+  margin-left: 4px;
 }
 
 //Mixins
@@ -202,4 +257,15 @@ label {
   -moz-transition: @transition;
   -ms-transition: @transition;
   -o-transition: @transition;
+}
+
+.stripe-gradient (@start, @end, @size: 40px) {
+  background: @start;
+  background: -moz-linear-gradient(top, @start 0%, @start 50%, @end 50%, @end 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(50%, @start), color-stop(50%, @end), color-stop(100%, @end));
+  background: -webkit-linear-gradient(top, @start 0%, @start 50%, @end 50%, @end 100%);
+  background: -o-linear-gradient(top, @start 0%, @start 50%, @end 50%, @end 100%);
+  background: -ms-linear-gradient(top, @start 0%, @start 50%, @end 50%, @end 100%);
+  background: linear-gradient(to bottom, @start 0%, @start 50%, @end 50%, @end 100%);
+  background-size: 100% (2 * @size);
 }

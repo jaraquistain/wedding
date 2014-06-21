@@ -17,42 +17,7 @@ AW.namespace('AW.Controllers.Invite');
         $scope.guests && $scope.guests.forEach(function(guest, index){
 
         });
-//        $scope.guests = [];
 
-//
-//        $scope.newGuest = {
-//            'firstName': null,
-//            'lastName':  null,
-//            'address':   {
-//                'street1': null,
-//                'street2': null,
-//                'city':    null,
-//                'state':   null,
-//                'zip':     null
-//            },
-//            'email':     null,
-//            'phone':     null,
-//            'confirmed': false
-//        };
-//
-//        $scope.newGuest = $scope.newGuest = {'address': {}, 'confirmed': false};
-//
-//        $scope.confirmedFilter = {
-//            'confirmed': true
-//        };
-//
-//        $scope.notConfirmedFilter = {
-//            'confirmed': false
-//        };
-//
-//        $scope.update = function(guest) {
-//            $http.put('/guests/' + guest._id + '.json', guest).success(function(data) {
-//                if (!data._id) {
-//                    console.log('error response:', data);
-//                }
-//            });
-//        };
-//
         $scope.addNewInvite = function(){
             var i = 0,
                 l = $scope.newInviteGuestsList.length,

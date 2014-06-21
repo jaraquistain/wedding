@@ -10,20 +10,21 @@ block content
             | 130 Townsend Street, San Francisco, CA 94107
             | Sunday, November 9th from 3-6pm
         label.name-label(for="name") Type in your name below and select it from the list
-        p.disclaimer If you can't find your name please call or text us at (510) 754-4722
         form.input-wrap.in-bl(autocomplete="off")
             input#name.aw-input(type="text", data-ng-model="name", placeholder="Name", autocomplete="off", data-ng-change="checkInput()")
             div.list-wrap
                 ul.guest-list(ng-show="name.length > 0 && !hideGuestList")
                     li.guest(data-ng-repeat="guest in guests | filter : nameFilter", data-ng-click="getInvites(guest)")
                         {{guest.firstName}} {{guest.lastName}}
-        form#inviteForm.invites-wrap(data-ng-show="showInvites", )
+        form#inviteForm.invites-wrap(data-ng-show="showInvites")
             h1 Your guest list
             p Check the box next to those guests who will be attending. Click "RSVP" when finished.
             ul.invites(data-ng-repeat="invite in invites | filter: activeGuestId")
                 li.invite-guest(data-ng-repeat="guest in invite.guests")
-                    input(id="{{invite._id + guest._id}}",type="checkbox", ng-model="guest.confirmed")
-                    label.invite-guest-name(for="{{invite._id + guest._id}}") {{guest.firstName}} {{guest.lastName}}
-            button(data-ng-click="updateInvite(invite)") RSVP
-
-
+                    input(id="{{invite._id + '_' + guest._id}}",type="checkbox", ng-model="guest.confirmed")
+                    label.invite-guest-name(for="{{invite._id + '_' + guest._id}}") {{guest.firstName}} {{guest.lastName}}
+                button(data-ng-click="updateInvite(invite)") RSVP
+                img.spinner(data-ng-show="loading", src="/images/spinner.gif", width="14", height="14")
+        div.thanks(data-ng-hide="hideThanks")
+            h1 Thanks! You have confirmed your party!
+            p If you need to change your RSVP later you can come back and repeat this process.

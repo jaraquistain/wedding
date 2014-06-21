@@ -3,5 +3,29 @@ block head
     title
         | #{title}
 block content
-    div#info.container(data-ng-controller="InfoController") info
-
+    div#info.container(data-ng-controller="InfoController")
+        section.description
+            h1 Wooo! Jon and Britney are getting married!!!
+            h2 Sunday, November 9th from 3-6pm
+            p In lieu of a traditional wedding and reception we have decided we would rather skip straight to the party. We will be privately tying the knot and then inviting our family and friends to celebrate with us a week later.
+            p
+                | If you haven't already, please <a href="/rsvp">RSVP</a> before October 1, 2014.
+        section.map
+            script(type="text/javascript", src="http://maps.google.com/maps/api/js?sensor=false")
+            div#map-wrap
+                div#gmap_canvas
+            h2 Tres Tequila Lounge & Mexican Kitchen
+            address
+                | 130 Townsend Street, San Francisco, CA 94107
+                br
+                a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/130+Townsend+Street+San+Francisco+CA+94107") Get directions
+        section.social
+            h1 #araquistainwedding
+            p If you're like us and your life mostly revolves around sharing through pictures on Instagram then you're in luck! We've picked our very own hashtag to easily group all your pictures of the event together.
+            p
+                | Even if it doesn't, if you've got a smartphone we still encourage you to install Instagram and take lots and lots of pictures tagged with <a href="http://iconosquare.com/tag/araquistainwedding">#araquistainwedding</a>. To tag a picture all you have to do is type "#araquistainwedding" along with whatever else you want to say. You can also add the tag in as a comment later, but only if you are the one who originally took the picture.
+            div.app-links
+                a.ios(href="https://itunes.apple.com/us/app/instagram/id389801252?mt=8", target="_blank")
+                    img(width="102", height="30", alt="Get it on iTunes", src="/images/apple.svg")
+                a.android(href="https://play.google.com/store/apps/details?id=com.instagram.android", target="_blank")
+                    img(width="86", height="30", alt="Get it on Google Play", src="/images/android.png")
