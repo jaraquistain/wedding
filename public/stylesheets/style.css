@@ -59,7 +59,7 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 56px 40px 40px;
+  padding: 18px 36px 36px;
   background-color: #fff;
 }
 #navigation {
@@ -217,4 +217,12 @@ label {
 }
 .spinner {
   margin-left: 4px;
+}
+@media all and (max-width: 500px) {
+  #content-wrap {
+    padding: 0 9px 9px;
+  }
+  .container {
+    padding: 40px 18px 18px;
+  }
 }
