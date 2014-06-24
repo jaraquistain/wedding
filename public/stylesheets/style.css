@@ -75,6 +75,10 @@ body {
 #navigation .nav-item {
   margin-right: 16px;
   margin-bottom: 8px;
+  opacity: 0;
+}
+#navigation .nav-item.show {
+  opacity: 1;
 }
 #navigation .nav-item:last-child {
   margin-right: 0px;

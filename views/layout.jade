@@ -14,9 +14,9 @@ html(data-ng-app="AW")
 
         nav#navigation(data-ng-cloak="data-ng-cloak")
             ul.nav-list(data-ng-controller="NavController", data-ng-init="setData('#{tab}')")
-                li.nav-item.in-bl(  class="#{title}",
+                li.nav-item.in-bl(class="#{title}",
                                     data-ng-repeat="item in navItems",
-                                    data-ng-class="{'active': activeTab == item.title}",
+                                    data-ng-class="{'active': activeTab == item.title, 'show': item.title}",
                                     data-ng-switch="activeTab == item.title")
                     a.nav-link.in-bl(   data-ng-switch-when="false",
                                         data-title="{{item.title}}",
