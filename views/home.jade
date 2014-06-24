@@ -1,0 +1,20 @@
+extends layout
+block head
+    title
+        | #{title}
+block content
+    div.container(data-ng-controller="HomeController")
+        section
+            img(src="/images/home.jpg", height="522", width="728")
+            h1 Jon and Britney are getting married!
+            p In lieu of a traditional wedding and reception we have decided we would rather skip straight to the party. We will be privately tying the knot in Las Vegas and then inviting our family and friends to celebrate with us a week later in San Francisco.
+        section.social
+            h1(id="hashtag") #araquistainwedding
+            p If you're like us and your life mostly revolves around sharing through pictures on Instagram then you're in luck! We've picked our very own hashtag to easily group all your pictures of the event together.
+            p
+                | Even if it doesn't, if you've got a smartphone we still encourage you to install Instagram and take lots and lots of pictures tagged with <a href="http://iconosquare.com/tag/araquistainwedding">#araquistainwedding</a>. To tag a picture all you have to do is type "#araquistainwedding" along with whatever else you want to say. You can also add the tag in as a comment later, but only if you are the one who originally took the picture.
+            div.app-links
+                a.ios(href="https://itunes.apple.com/us/app/instagram/id389801252?mt=8", target="_blank")
+                    img(width="102", height="30", alt="Get it on iTunes", src="/images/apple.svg")
+                a.android(href="https://play.google.com/store/apps/details?id=com.instagram.android", target="_blank")
+                    img(width="86", height="30", alt="Get it on Google Play", src="/images/android.png")

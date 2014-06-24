@@ -13,6 +13,7 @@ AW.namespace("AW.App");
     //////////////////////////////
     namespace.module
         .controller('NavController', AW.Controllers.Nav.controller)
+        .controller('HomeController', AW.Controllers.Home.controller)
         .controller('InfoController', AW.Controllers.Info.controller)
         .controller('VegasController', AW.Controllers.Vegas.controller)
         .controller('RsvpController', AW.Controllers.Rsvp.controller)

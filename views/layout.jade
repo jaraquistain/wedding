@@ -28,6 +28,7 @@ html(data-ng-app="AW")
 
         script(type="text/javascript").
             AW_require([
+                'http://maps.google.com/maps/api/js?sensor=false',
                 '/javascripts/vendor/angular/angular.min.js',
                 '/javascripts/vendor/jquery/jquery-1.11.1.min.js',
                 '/javascripts/vendor/cookies-js/src/cookies.js',
@@ -36,6 +37,7 @@ html(data-ng-app="AW")
             AW_require([
                 '/javascripts/aw.js',
                 '/javascripts/controllers/testController.js',
+                '/javascripts/controllers/homeController.js',
                 '/javascripts/controllers/infoController.js',
                 '/javascripts/controllers/vegasController.js',
                 '/javascripts/controllers/rsvpController.js',

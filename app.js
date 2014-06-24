@@ -53,7 +53,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 /////////////////
 var routes = require('./routes');
 
-
 //Invites
 var inviteRoutes = require('./routes/invites');
 app.get('/invites', inviteRoutes.view(Invite, Guest));
@@ -63,8 +62,9 @@ app.delete('/invites/:id', inviteRoutes.remove(Invite));
 app.post('/invites.json', inviteRoutes.add(Invite));
 app.get('/invites.json', inviteRoutes.get(Invite));
 
-//Info
+//pages
 app.get('/', routes.root);
+app.get('/home', routes.home);
 app.get('/info', routes.info);
 app.get('/vegas', routes.vegas);
 app.get('/registry', routes.registry);

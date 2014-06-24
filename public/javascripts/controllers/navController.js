@@ -8,6 +8,10 @@ AW.namespace('AW.Controllers.Nav');
         $('#navigation').sticky({'topSpacing':0});
         $scope.$root.navItems = [
             {
+                'title': 'Home',
+                'route': '/'
+            },
+            {
                 'title': 'Info',
                 'route': '/info'
             },
