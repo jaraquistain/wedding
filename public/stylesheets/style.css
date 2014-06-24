@@ -119,6 +119,9 @@ body {
   vertical-align: top;
   zoom: 1;
 }
+.home-image {
+  width: 100%;
+}
 #map-wrap {
   overflow: hidden;
   height: 300px;

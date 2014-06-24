@@ -3,5 +3,17 @@ block head
     title
         | #{title}
 block content
-    div#vegas.container(data-ng-controller="VegasController", style="text-align: center;") vegas
-        img(src="http://www.placekitten.com/300/500", data-ng-repeat="thing in [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2] track by $index")
+    div#vegas.container(data-ng-controller="VegasController")
+        section.description
+            h1 Tying the knot, Vegas Style
+            h2 Friday, October 31st at 7:00pm
+            p
+                | If you have any questions please contact us at (510) 754-4722
+        section.vegas-map
+            div#map-wrap
+                div#gmap_canvas
+            h2 Little White Wedding Chapel
+            address
+                | 1301 S Las Vegas Blvd, Las Vegas, NV 89104
+                br
+                a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/1301+S+Las+Vegas+Blvd+Las+Vegas+NV+89104") Get directions

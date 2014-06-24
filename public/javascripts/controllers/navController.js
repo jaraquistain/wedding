@@ -1,11 +1,6 @@
 AW.namespace('AW.Controllers.Nav');
 (function (namespace) {
     namespace.controller = function ($scope) {
-        $scope.setData = function(tab) {
-            console.log('set active to:', tab);
-            $scope.activeTab = tab;
-        };
-        $('#navigation').sticky({'topSpacing':0});
         $scope.$root.navItems = [
             {
                 'title': 'Home',
@@ -24,11 +19,17 @@ AW.namespace('AW.Controllers.Nav');
                 'route': '/registry'
             }
         ];
-
-        Cookies.get('vegas-ok') && $scope.$root.navItems.length === 3 && $scope.$root.navItems.push({
+        Cookies.get('vegas-ok') && $scope.$root.navItems.length === 4 && $scope.$root.navItems.push({
             'title': 'Vegas!',
             'route': '/vegas'
         });
+        $('#navigation').sticky({'topSpacing':0});
+
+        $scope.setData = function(tab) {
+            console.log('set active to:', tab);
+            $scope.activeTab = tab;
+        };
+
 
     };
     namespace.controller.$inject = ['$scope'];
