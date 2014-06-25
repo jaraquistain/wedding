@@ -4,12 +4,8 @@ block head
         | #{title}
 block content
     div#info.container(data-ng-controller="InfoController")
-        section.description
-            h1 Party time!
-            h2 Sunday, November 9th from 3-6pm
-            p
-                | If you haven't already, please <a href="/rsvp">RSVP</a> before October 1, 2014.
         section.dinner-map
+            h1 Sunday, November 9th from 3-6pm
             div#map-wrap
                 div#gmap_canvas
             h2 Tres Tequila Lounge & Mexican Kitchen
@@ -17,3 +13,8 @@ block content
                 | 130 Townsend Street, San Francisco, CA 94107
                 br
                 a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/130+Townsend+Street+San+Francisco+CA+94107") Get directions
+        section.description
+            h1 Party time!
+            p As much as we love your little ones, space is limited so we ask that you please leave them at home.
+            p
+                | If you haven't already, please <a href="/rsvp">RSVP</a> before October 27, 2014.

@@ -16,11 +16,11 @@ p {
   margin-bottom: 0;
 }
 a {
-  color: #00B7FF;
+  color: #005daa;
 }
 h1 {
   margin: 18px 0;
-  color: #0071cf;
+  color: #6f9b00;
   font-family: "Josefin Sans";
 }
 h2 {
@@ -39,19 +39,13 @@ nav ul {
 }
 body {
   padding: 0;
-  background: #ffffff;
-  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, rgba(0, 146, 89, 0.5) 50%, rgba(0, 146, 89, 0.5) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(50%, rgba(0, 146, 89, 0.5)), color-stop(100%, rgba(0, 146, 89, 0.5)));
-  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, rgba(0, 146, 89, 0.5) 50%, rgba(0, 146, 89, 0.5) 100%);
-  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, rgba(0, 146, 89, 0.5) 50%, rgba(0, 146, 89, 0.5) 100%);
-  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, rgba(0, 146, 89, 0.5) 50%, rgba(0, 146, 89, 0.5) 100%);
-  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, rgba(0, 146, 89, 0.5) 50%, rgba(0, 146, 89, 0.5) 100%);
-  background-size: 100% 80px;
 }
 #hero {
-  height: 0px;
+  height: 200px;
   width: 100%;
   background-color: #EEE;
+  background: url("/images/home.jpg") center no-repeat;
+  background-size: cover;
 }
 #content-wrap {
   padding: 0 40px 40px;
@@ -87,7 +81,7 @@ body {
   border-bottom: 2px solid #CCC;
 }
 #navigation .nav-item.active {
-  border-bottom: 2px solid #0071CF;
+  border-bottom: 2px solid #6f9b00;
 }
 #navigation .nav-item .nav-link {
   margin: 0 0 -2px;
@@ -163,7 +157,7 @@ section:last-child {
 #rsvp {
   min-height: 640px;
 }
-address {
+#rsvp address {
   white-space: pre-wrap;
   margin: 32px 0;
 }
@@ -225,11 +219,19 @@ label {
 .spinner {
   margin-left: 4px;
 }
-@media all and (max-width: 500px) {
+@media all and (max-width: 450px) {
   #content-wrap {
     padding: 0 9px 9px;
   }
   .container {
-    padding: 40px 18px 18px;
+    padding: 49px 18px 18px;
+  }
+  #navigation .nav-item .nav-link {
+    font-size: 16px;
+  }
+}
+@media all and (max-width: 305px) {
+  .container {
+    padding: 89px 18px 18px;
   }
 }
