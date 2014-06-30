@@ -55,14 +55,17 @@ body {
   //.stripe-gradient(white , rgba(0, 146, 89, 0.5));
 }
 
-#hero {
-  height: 200px;
+//#hero {
+//  height: 200px;
+//  width: 100%;
+//  background-color: #EEE;
+//  background: url("/images/home2.jpg") center no-repeat;
+//  background-size: cover;
+//}
+.hero-image {
   width: 100%;
-  background-color: #EEE;
-  background: url("/images/home.jpg") center no-repeat;
-  background-size: cover;
+  display:block;
 }
-
 #content-wrap {
   padding: 0 @rowHeight @rowHeight;
 }
@@ -264,6 +267,13 @@ label {
 
 .spinner {
   margin-left: 4px;
+}
+
+.attending {
+  color: green;
+}
+.not-attending {
+  color: red;
 }
 
 //Mixins

@@ -4,11 +4,17 @@ block head
         | #{title}
 block content
     div.container(data-ng-controller="InviteController", data-ng-init="setData( #{JSON.stringify(invites)}, #{JSON.stringify(guests)})")
+        h1 Submitted:
+        a.invite(data-ng-href="/invites/{{invite._id}}", data-ng-repeat="invite in invites", data-ng-show="invite.submitted")
+            hr
+            p(data-ng-repeat="guest in invite.guests")
+                span(ng-class="{'attending': guest.confirmed, 'not-attending': !guest.confirmed}") {{guest.firstName}} {{guest.lastName}}
         h1 My Invite List
         h2 Invites ({{invites.length}}):
-        a.invite(data-ng-href="/invites/{{invite._id}}", data-ng-repeat="invite in invites")
+        a.invite(data-ng-href="/invites/{{invite._id}}", data-ng-repeat="invite in invites", data-ng-hide="invite.submitted")
             hr
-            span(data-ng-repeat="guest in invite.guests") {{guest.firstName}} {{guest.lastName}},
+            p(data-ng-repeat="guest in invite.guests")
+                span(ng-class="{'confirmed': guest.confirmed }") {{guest.firstName}} {{guest.lastName}}
         h2 Add New Invite
         form(novalidate, name="newInviteForm", ng-submit="addNewInvite()")
             div.guest(data-ng-repeat="guest in guests")

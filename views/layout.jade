@@ -12,7 +12,8 @@ html(data-ng-app="AW")
         meta(name="viewport", content="width=device-width")
         block head
     body()
-        div#hero
+        //div#hero
+        img.hero-image(src="/images/home2.jpg")
         nav#navigation(data-ng-cloak="data-ng-cloak")
             ul.nav-list(data-ng-controller="NavController", data-ng-init="setData('#{tab}')")
                 li.nav-item.in-bl(class="#{title}",

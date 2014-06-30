@@ -51,6 +51,7 @@ exports.update = function (Invite) {
                 res.json({'error': error});
             } else {
                 invite.guests = req.body.guests;
+                invite.submitted = req.body.submitted || false;
                 invite.save(function (error, data) {
                     if (error || !data) {
                         res.json({'error': error});

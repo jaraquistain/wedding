@@ -55,7 +55,7 @@ AW.namespace('AW.Controllers.Invite');
                 }
             }
             if ($scope.newInviteForm.$valid) {
-                $http.put('/invites/' + $scope.invite._id, { '_id:': $scope.invite._id, 'guests': guests }).success(function(response){
+                $http.put('/invites/' + $scope.invite._id, { '_id:': $scope.invite._id, 'guests': guests, 'submitted': true }).success(function(response){
                     if (response._id) {
                         $scope.invite = response;
                         $scope.newInviteGuestsList = [];

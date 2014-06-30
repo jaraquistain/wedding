@@ -40,12 +40,9 @@ nav ul {
 body {
   padding: 0;
 }
-#hero {
-  height: 200px;
+.hero-image {
   width: 100%;
-  background-color: #EEE;
-  background: url("/images/home.jpg") center no-repeat;
-  background-size: cover;
+  display: block;
 }
 #content-wrap {
   padding: 0 40px 40px;
@@ -218,6 +215,12 @@ label {
 }
 .spinner {
   margin-left: 4px;
+}
+.attending {
+  color: green;
+}
+.not-attending {
+  color: red;
 }
 @media all and (max-width: 450px) {
   #content-wrap {
