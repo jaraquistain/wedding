@@ -4,12 +4,13 @@ block head
         | #{title}
 block content
     div#rsvp.container(data-ng-controller="RsvpController", data-ng-init="setData(#{JSON.stringify(invites)}, #{JSON.stringify(guests)})")
+        img.home-square(src="/images/square7.jpg")
         h1 Let us know if you can come to dinner
         address
             | Tres
             | 130 Townsend Street, San Francisco, CA 94107
             | Sunday, November 9th from 3-6pm
-        label.name-label(for="name") Type in your name below and select it from the list
+        h2.name-label(for="name") Type in your name below and select it from the list
         form.input-wrap.in-bl(autocomplete="off")
             input#name.aw-input(type="text", data-ng-model="name", placeholder="Name", autocomplete="off", data-ng-change="checkInput()")
             div.list-wrap

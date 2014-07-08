@@ -1,10 +1,20 @@
 @gutter: 9px;
 @rowHeight: 40px;
 @myBlue: #005DAA;
-@myBlueGreen: #009288;
+@myBlueGreen: #19926d;
+@myLightBlue: #71BEBD;
 @myGreen: #6F9B00;
-@headerColor: @myGreen;
-@linkColor: @myBlue;
+@myOrange: #FF4E00;
+@myRed: #D14000;
+@myGrey: #AAA;
+@myDarkGrey: #333;
+@myGold: #D6AF17;
+
+@headerColor: @myRed;
+@h2Color: #000;
+@linkColor: @myDarkGrey;
+@linkHoverColor: @myLightBlue;
+@scheduleColor: @myGrey;
 
 .ng-cloak {
   display: none !important;
@@ -25,18 +35,22 @@ p {
 }
 a {
   color: @linkColor;
+  &:hover, &:active {
+    color: @linkHoverColor;
+  }
 }
 
 h1 {
   margin: 18px 0;
   color: @headerColor;
-  font-family: "Josefin Sans";
+  //font-family: "Josefin Sans";
+  font-size: 24px;
 }
 
 h2 {
   font-family: "Josefin Sans";
   margin-bottom: 0;
-  //color: @myBlueGreen;
+  color: @h2Color;
   font-size: 20px;
 }
 
@@ -74,7 +88,7 @@ body {
   //min-height: 3000px;
   max-width: 800px;
   margin: 0 auto;
-  padding: (@rowHeight +  @gutter) 4*@gutter 4 * @gutter;
+  padding: (@rowHeight +  @gutter) 0 4 * @gutter;
   background-color: #fff;
 }
 
@@ -145,6 +159,12 @@ body {
 
 .home-image {
   width: 100%;
+}
+.home-square {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 0 auto;
 }
 //INFO///
 #map-wrap {
@@ -274,6 +294,40 @@ label {
 }
 .not-attending {
   color: red;
+}
+
+//Vegas
+.schedule {
+@scheduleColWidth: 80px;
+  .schedule-item {
+    position: relative;
+    margin: (3 * @gutter) 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .time {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 @gutter 0 0;
+      margin: 0;
+      color: @scheduleColor;
+      width: @scheduleColWidth;
+      border-right: 1px solid @myGrey;
+      display: block;
+      height: 100%;
+      text-align: right;
+    }
+    .item {
+      margin-left: @scheduleColWidth;
+      padding-left: @gutter;
+      .title {
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 //Mixins

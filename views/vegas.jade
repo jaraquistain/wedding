@@ -4,16 +4,50 @@ block head
         | #{title}
 block content
     div#vegas.container(data-ng-controller="VegasController")
-        section.description
-            h1 Tying the knot, Vegas Style
-            h2 Friday, October 31st at 7:00pm
+        section.accomodations
+            img.home-square(src="/images/square.jpg")
+            h1 Accomodations
+            p Since Halloween is bound to be a busy weekend, we suggest that you book your hotel accomodations ASAP.
             p
-                | If you have any questions please contact us at (510) 754-4722
-        section.vegas-map
-            div#map-wrap
-                div#gmap_canvas
-            h2 Little White Wedding Chapel
-            address
-                | 1301 S Las Vegas Blvd, Las Vegas, NV 89104
-                br
-                a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/1301+S+Las+Vegas+Blvd+Las+Vegas+NV+89104") Get directions
+                | We'll be staying at the <a target="_blank" href="http://www.cosmopolitanlasvegas.com/">Cosmopolitan of Las Vegas</a> and we suggest that you do too. Alternatively, <a target="_blank" href="http://www.planethollywoodresort.com/">Planet Hollywood</a> and <a target="_blank" href="https://www.bellagio.com/">The Bellagio</a> are nearby and a bit cheaper. If you've got a car or are otherwise not concerned with staying on The Strip itself then <a target="_blank" href="https://www.airbnb.com/s/Las-Vegas--NV--United-States?checkin=10%2F30%2F2014&checkout=11%2F01%2F2014&guests=2&source=bb">AirBnB</a> can be a great choice too.
+        section.itinerary
+            h1 What's going on?
+            h2 Thursday
+            ul.schedule
+                li.schedule-item
+                    p.time.in-bl TBA (Evening)
+                    div.item.in-bl
+                        span.title Everyone goes bowling
+                        p.description We thought it would be fun to get everyone together for some quality bowling time. We're reserving the lanes for a couple games and getting shoes for everyone and if you get hungry there will be food and drinks you can purchase
+            h2 Friday
+            ul.schedule
+                //li.schedule-item
+                //    p.time.in-bl Afternoon
+                //    div.item.in-bl
+                //        span.title Pictures
+                //        p.description We're going to be running around with the photographer taking pictures that will make everyone who isn't here with us wish they were. We'll let those of you who need to be around for this know ahead of time.
+                li.schedule-item
+                    p.time.in-bl.in-bl 7:00pm
+                    div.item.in-bl
+                        span.title Wedding
+                        p.description
+                            | The main event! Be sure to take lots of pictures and video. Don't forget to tag them with <a target="_blank" href="http://iconosquare.com/tag/araquistainwedding">#araquistainwedding</a> on Instagram.
+                        p Little White Wedding Chapel
+                        address
+                            | 1301 S Las Vegas Blvd, Las Vegas, NV 89104
+                            br
+                            a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/1301+S+Las+Vegas+Blvd+Las+Vegas+NV+89104") Get directions
+                li.schedule-item
+                    p.time.in-bl TBA (Late)
+                    div.item.in-bl
+                        span.title Dinner
+                        p.description Now that the deed's done we'd like to sit down and share our first meal as one family
+                        p (Restaurant TBA) @ The Cosmopolitan of Las Vegas
+                        address
+                            | 3708 S Las Vegas Blvd, Las Vegas, NV 89109
+                            br
+                            a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/3708+S+Las+Vegas+Blvd+Las+Vegas+NV+89104") Get directions
+        //section.vegas-map
+        //    h1 Points of Interest
+        //    div#map-wrap
+        //        div#gmap_canvas

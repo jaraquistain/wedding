@@ -16,16 +16,21 @@ p {
   margin-bottom: 0;
 }
 a {
-  color: #005daa;
+  color: #333333;
+}
+a:hover,
+a:active {
+  color: #71bebd;
 }
 h1 {
   margin: 18px 0;
-  color: #6f9b00;
-  font-family: "Josefin Sans";
+  color: #d14000;
+  font-size: 24px;
 }
 h2 {
   font-family: "Josefin Sans";
   margin-bottom: 0;
+  color: #000000;
   font-size: 20px;
 }
 ul {
@@ -50,7 +55,7 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 49px 36px 36px;
+  padding: 49px 0 36px;
   background-color: #fff;
 }
 #navigation {
@@ -78,7 +83,7 @@ body {
   border-bottom: 2px solid #CCC;
 }
 #navigation .nav-item.active {
-  border-bottom: 2px solid #6f9b00;
+  border-bottom: 2px solid #d14000;
 }
 #navigation .nav-item .nav-link {
   margin: 0 0 -2px;
@@ -116,6 +121,12 @@ body {
 }
 .home-image {
   width: 100%;
+}
+.home-square {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 0 auto;
 }
 #map-wrap {
   overflow: hidden;
@@ -221,6 +232,35 @@ label {
 }
 .not-attending {
   color: red;
+}
+.schedule .schedule-item {
+  position: relative;
+  margin: 27px 0;
+}
+.schedule .schedule-item:last-child {
+  margin-bottom: 0;
+}
+.schedule .schedule-item .time {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 9px 0 0;
+  margin: 0;
+  color: #aaaaaa;
+  width: 80px;
+  border-right: 1px solid #aaaaaa;
+  display: block;
+  height: 100%;
+  text-align: right;
+}
+.schedule .schedule-item .item {
+  margin-left: 80px;
+  padding-left: 9px;
+}
+.schedule .schedule-item .item .title {
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
 }
 @media all and (max-width: 450px) {
   #content-wrap {

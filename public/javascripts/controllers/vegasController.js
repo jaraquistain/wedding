@@ -45,8 +45,8 @@ AW.namespace('AW.Controllers.Vegas');
             map.setCenter(currentCenter);
         }
 
-        google.maps.event.addDomListener(window, 'load', init_map);
-        google.maps.event.addDomListener(window, 'resize', centerMap);
+        //google.maps.event.addDomListener(window, 'load', init_map);
+        //google.maps.event.addDomListener(window, 'resize', centerMap);
     };
     namespace.controller.$inject = ['$scope'];
 })(AW.Controllers.Vegas);
