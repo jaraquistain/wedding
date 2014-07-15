@@ -5,7 +5,7 @@ block head
 block content
     div#rsvp.container(data-ng-controller="RsvpController", data-ng-init="setData(#{JSON.stringify(invites)}, #{JSON.stringify(guests)})")
         img.home-square(src="/images/square7.jpg")
-        h1 Let us know if you can come to dinner
+        h1 Let us know if you're coming to dinner
         address
             | Tres
             | 130 Townsend Street, San Francisco, CA 94107
@@ -19,11 +19,14 @@ block content
                         {{guest.firstName}} {{guest.lastName}}
         form#inviteForm.invites-wrap(data-ng-show="showInvites")
             h1 Your guest list
-            p Check the box next to those guests who will be attending. Click "RSVP" when finished.
+            p Check the box next to those guests who will be attending. If you or any of your guests cannot attend leave the corresponding box blank.
+            p Click "RSVP" when finished.
+            br
             ul.invites(data-ng-repeat="invite in invites | filter: activeGuestId")
                 li.invite-guest(data-ng-repeat="guest in invite.guests")
                     input(id="{{invite._id + '_' + guest._id}}",type="checkbox", ng-model="guest.confirmed")
                     label.invite-guest-name(for="{{invite._id + '_' + guest._id}}") {{guest.firstName}} {{guest.lastName}}
+                br
                 button(data-ng-click="updateInvite(invite)") RSVP
                 img.spinner(data-ng-show="loading", src="/images/spinner.gif", width="14", height="14")
         div.thanks(data-ng-hide="hideThanks")

@@ -4,8 +4,8 @@ block head
         | #{title}
 block content
     div#vegas.container(data-ng-controller="VegasController")
+        img.home-square(src="/images/square.jpg")
         section.accomodations
-            img.home-square(src="/images/square.jpg")
             h1 Accomodations
             p Since Halloween is bound to be a busy weekend, we suggest that you book your hotel accomodations ASAP.
             p
@@ -15,10 +15,15 @@ block content
             h2 Thursday
             ul.schedule
                 li.schedule-item
-                    p.time.in-bl TBA (Evening)
+                    p.time.in-bl 6:00-8:00pm
                     div.item.in-bl
-                        span.title Everyone goes bowling
-                        p.description We thought it would be fun to get everyone together for some quality bowling time. We're reserving the lanes for a couple games and getting shoes for everyone and if you get hungry there will be food and drinks you can purchase
+                        span.title Bowling
+                        p.description We thought it would be fun to get everyone together for some quality bowling time. We're reserving the lanes for a couple hours and getting shoes for everyone. If you get hungry there will be food and drinks you can purchase.
+                        p Gold Coast Casino Bowling Alley
+                        address
+                            | 4000 West Flamingo Road, Las Vegas, NV 89103
+                            br
+                            a.directions-link(target="_blank", href="https://www.google.com/maps/dir/Current+Location/4000+W+Flamingo+Road+Las+Vegas+NV+89103") Get directions
             h2 Friday
             ul.schedule
                 //li.schedule-item

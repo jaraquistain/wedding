@@ -1,6 +1,6 @@
 AW.namespace('AW.Controllers.Rsvp');
 (function (namespace) {
-    namespace.controller = function ($scope, $http) {
+    namespace.controller = function ($scope, $http, $timeout) {
         $scope.hideGuestList = false;
         $scope.hideThanks = true;
 
@@ -29,6 +29,9 @@ AW.namespace('AW.Controllers.Rsvp');
             $scope.activeGuestId = guest._id;
             $scope.hideGuestList = true;
             $scope.showInvites = true;
+            $timeout(function(){
+                window.scrollTo(0,document.body.scrollHeight);
+            });
         };
 
         $scope.checkInput = function () {
@@ -78,5 +81,5 @@ AW.namespace('AW.Controllers.Rsvp');
         }
 
     };
-    namespace.controller.$inject = ['$scope', '$http'];
+    namespace.controller.$inject = ['$scope', '$http', '$timeout'];
 })(AW.Controllers.Rsvp);
