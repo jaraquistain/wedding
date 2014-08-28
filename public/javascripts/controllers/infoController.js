@@ -13,6 +13,11 @@ AW.namespace('AW.Controllers.Info');
         function init_map() {
             var myOptions = {
                 zoom: 14,
+                scrollwheel: false,
+                navigationControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                draggable: false,
                 center: new google.maps.LatLng(37.7802903, -122.3915351),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
