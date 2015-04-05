@@ -82,7 +82,6 @@ body {
 }
 #navigation .nav-item:hover {
   border-bottom: 2px solid #CCC;
-  padding-bottom: 0px;
 }
 #navigation .nav-item.active {
   border-bottom: 2px solid #d14000;
